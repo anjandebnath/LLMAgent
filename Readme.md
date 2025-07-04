@@ -28,7 +28,12 @@ poetry export -f requirements.txt --output requirements.txt --without-hashes
 
 #### Conda environment list 
 conda env list
+base                  *  /opt/anaconda3
 LLMAgentEnv              /opt/anaconda3/envs/LLMAgentEnv
+conda activate LLMAgentEnv
 
 #### Conda create new env from existing yml dependencies 
 conda env create -n LLMAgentEnv --file /Users/anjandebnath/Documents/PythonWorkspace/LLMAgent/environment.yml
+
+#### Launch Navigator from Terminal
+anaconda-navigator
