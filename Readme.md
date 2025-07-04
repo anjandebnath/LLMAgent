@@ -20,3 +20,15 @@ LLMAgent/
 
 ### Set Up the Poetry Virtual Environment
 poetry shell
+
+### Conda version
+conda --version
+#### Export the dependencies to ENV.txt file 
+poetry export -f requirements.txt --output requirements.txt --without-hashes
+
+#### Conda environment list 
+conda env list
+LLMAgentEnv              /opt/anaconda3/envs/LLMAgentEnv
+
+#### Conda create new env from existing yml dependencies 
+conda env create -n LLMAgentEnv --file /Users/anjandebnath/Documents/PythonWorkspace/LLMAgent/environment.yml
