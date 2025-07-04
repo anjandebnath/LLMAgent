@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "llmagent"
+version = "0.1.0"
+description = "Embedding OpenAi LLM with Application"
+authors = ["Anjan Debnath <anjan0151@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+faiss-cpu = "^1.11.0"
+jupyter = "^1.1.1"
+langchain-community = "^0.3.27"  
+langchain-huggingface = "^0.3.0"
+python-dotenv = "^1.1.1"
+langchain-openai = "^0.3.27"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
