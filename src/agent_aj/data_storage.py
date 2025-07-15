@@ -1,4 +1,4 @@
-# agent_aj/data_storage.py
+# src/agent_aj/data_storage.py
 # This script demonstrates Encapsulation.
 
 from pymongo import MongoClient
@@ -54,7 +54,8 @@ class DataStorer:
             collection_name: The name of the collection to store data in.
             data: A list of dictionary objects to be stored as documents.
         """
-        if not self.db:
+        # CORRECTED LINE: Changed 'if not self.db:' to 'if self.db is None:'
+        if self.db is None:
             raise ConnectionError("Database connection is not open. Use within a 'with' statement.")
 
         if not data:

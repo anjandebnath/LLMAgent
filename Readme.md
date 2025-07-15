@@ -48,5 +48,8 @@ anaconda-navigator
     Run the ZenMl server 
 3. OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES poetry run zenml up
 4. poetry run python run_pipeline.py
-5. ETL pipeline
+5. ETL pipeline: Dashboard URL for Pipeline Run: http://127.0.0.1:8237/projects/default/runs/8ba73d94-532a-4e79-b019-c03d64986f51
+![alt text](image-3.png)
+6. MongoDB connect: mongodb://localhost:27017
+![alt text](image-2.png)
 ![alt text](image-1.png)

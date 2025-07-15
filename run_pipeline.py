@@ -38,7 +38,7 @@ def run_etl():
         medium_urls=medium_post_urls
     )
 
-    pipeline_instance.run()
+    # pipeline_instance.run()
 
     print("\nPipeline run initiated. Check your terminal for logs from the steps.")
     print("After completion, you can connect to your MongoDB instance to verify the data.")
