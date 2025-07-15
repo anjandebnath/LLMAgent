@@ -21,6 +21,7 @@ LLMAgent/
 ### Set Up the Poetry Virtual Environment
 poetry shell
 
+## ! Conda oprions
 ### Conda version
 conda --version
 #### Export the dependencies to ENV.txt file 
@@ -37,3 +38,15 @@ conda env create -n LLMAgentEnv --file /Users/anjandebnath/Documents/PythonWorks
 
 #### Launch Navigator from Terminal
 anaconda-navigator
+
+## Project Structure 
+![alt text](image.png)
+
+1. poetry install
+
+2. The __init__.py file tells the Python interpreter to treat a directory as a package, allowing you to import modules from it.
+    Run the ZenMl server 
+3. OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES poetry run zenml up
+4. poetry run python run_pipeline.py
+5. ETL pipeline
+![alt text](image-1.png)

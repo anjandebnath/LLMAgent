@@ -1,20 +1,23 @@
-[tool.poetry]
-name = "llmagent"
+[project]
+name = "agent-aj"
 version = "0.1.0"
-description = "Embedding OpenAi LLM with Application"
-authors = ["Anjan Debnath <anjan0151@gmail.com>"]
+description = ""
+authors = [
+    {name = "Anjan Debnath",email = "anjan0151@gmail.com"}
+]
 readme = "README.md"
+requires-python = ">=3.11.8,<3.13"
+dependencies = [
+    "pymongo (>=4.13.2,<5.0.0)",
+    "beautifulsoup4 (>=4.13.4,<5.0.0)",
+    "requests (>=2.32.4,<3.0.0)",
+    "zenml[server] (>=0.84.0,<0.85.0)"
+]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-faiss-cpu = "^1.11.0"
-jupyter = "^1.1.1"
-langchain-community = "^0.3.27"  
-langchain-huggingface = "^0.3.0"
-python-dotenv = "^1.1.1"
-langchain-openai = "^0.3.27"
+[tool.poetry]
+packages = [{include = "agent_aj", from = "src"}]
 
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
