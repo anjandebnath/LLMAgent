@@ -53,3 +53,4 @@ anaconda-navigator
 6. MongoDB connect: mongodb://localhost:27017
 ![alt text](image-2.png)
 ![alt text](image-1.png)
+7. Stop docker and zenml dashboard after testing
