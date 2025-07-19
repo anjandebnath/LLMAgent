@@ -4,16 +4,22 @@
 
 version: '3.8' # Specifies the version of the Docker Compose file format.
 
-services: # Defines the different services (containers) that make up our app.
-  mongo:
-    image: mongo:latest # Specifies the Docker image to use for this service.
-    container_name: mongodb_agent_aj # A custom name for the container for easier identification.
-    restart: always # Policy for restarting the container. 'always' ensures it restarts if it stops.
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant_db
     ports:
-      - "27017:27017" # Maps port 27017 on the host to port 27017 in the container. This is the default MongoDB port.
+      - "6333:6333" # API port
+      - "6334:6334" # gRPC port
     volumes:
-      - mongo-data:/data/db # Mounts a volume to persist database data, so it's not lost when the container stops.
+      - ./qdrant_storage:/qdrant/storage # Persist data
 
-volumes: # Defines the named volumes used by the services.
-  mongo-data:
-    driver: local # Specifies that the volume is a standard local Docker volume.
+  app:
+    build: .
+    container_name: travel_agent_app
+    depends_on:
+      - qdrant
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
