@@ -25,9 +25,14 @@ which you can install with:
 ##### Run the training pipeline
     `python run.py --training-pipeline `
 
+We'll start with two simple models, a SGD Classifier and a Random Forest
+Classifier, both batteries-included from `sklearn`. We'll train them both on the
+same data and then compare their performance.
 
 ##### Run the training pipeline with versioned artifacts
     `python run.py --training-pipeline --train-dataset-version-name=1 --test-dataset-version-name=1`
+
+Luckily, ZenML offers a *Model Control Plane*, which is a central register of all your ML models.    
 
 ##### Run the inference pipeline
     `python run.py --inference-pipeline `
