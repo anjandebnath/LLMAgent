@@ -8,27 +8,27 @@ your pipelines.
 ### Setup ZenML
 ZenML also comes with a series of existing templates you can leverage,
 which you can install with:
-poetry add "zenml[templates]"
+`poetry add "zenml[templates]"`
 
 #### Install Starter Template project with a MLOPs template
-poetry run zenml init --template starter
+`poetry run zenml init --template starter`
 
 #### Install ZenML server
-poetry add "zenml[server]" 
+`poetry add "zenml[server]" `
 
 
 #### Run the pipeline
 ##### Run the feature engineering pipeline
-    python run.py --feature-pipeline
+   ` python run.py --feature-pipeline`
   
   
 ##### Run the training pipeline
-    python run.py --training-pipeline
+    `python run.py --training-pipeline `
 
 
 ##### Run the training pipeline with versioned artifacts
-    python run.py --training-pipeline --train-dataset-version-name=1 --test-dataset-version-name=1
+    `python run.py --training-pipeline --train-dataset-version-name=1 --test-dataset-version-name=1`
 
 ##### Run the inference pipeline
-    python run.py --inference-pipeline 
+    `python run.py --inference-pipeline `
 
