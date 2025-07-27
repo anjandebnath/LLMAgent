@@ -8,6 +8,13 @@ more generally.
 For example, there are utilities for text splitting, working
 with vector databases, document loading and retrieval, and conversational state persistence, among others. 
 
+### Poetry commands
+1. Initialize a Poetry project (if not already a Poetry project): `poetry init`
+2. Create a virtual environment: Poetry automatically creates a virtual environment when you run: `poetry install`
+3. Activate the virtual environment: To activate the virtual environment, run: `poetry shell`
+4. To see the path of the current virtual environment, use: `poetry env info`
+
+
 
 ### Project goal
 
@@ -58,3 +65,43 @@ ML models in scikit-learn or neural networks in PyTorch.
 ![alt text](image.png)
 
 
+#### Configuring Airflow in Python environment
+
+
+1. To install Apache Airflow using pip within a Poetry Python project while maintaining Poetry's virtual environment, you need to ensure that pip installs Airflow into the Poetry-managed virtual environment.
+Verify the active environment: Run: `which pip`
+/Users/anjandebnath/Library/Caches/pypoetry/virtualenvs/agent-aj-lR4vpAra-py3.11/bin/pip
+
+2. Typical command to install Airflow from scratch in a reproducible way from PyPI looks like below:
+pip install apache-airflow==3.0.0 --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-3.0.0/constraints-3.11.txt"
+
+3. Check install: airflow version
+4. Apache Airflow requires a directory to store configuration files, logs, and other data. Set the AIRFLOW_HOME variable to specify this directory.
+
+###### For standalone usage
+https://github.com/apache/airflow/blob/main/INSTALLING.md
+
+https://medium.com/@diveshkumarchordia/%EF%B8%8F-getting-started-with-apache-airflow-3-x-a-chronological-troubleshooting-guide-fd22ed755c03
+
+export AIRFLOW_HOME=~/airflow
+mkdir -p $AIRFLOW_HOME
+
+##### For Custom usage 
+https://medium.com/orchestras-data-release-pipeline-blog/installing-and-configuring-apache-airflow-a-step-by-step-guide-5ff602c47a36
+
+Replace ~/airflow with your preferred directory.
+export AIRFLOW_HOME=/Users/anjandebnath/Documents/PythonWorkspace/Agent-AJ/airflow/docker
+mkdir -p $AIRFLOW_HOME
+Persist the environment variable: Add the AIRFLOW_HOME variable to your shell configuration (e.g., ~/.bashrc, ~/.zshrc, or ~/.bash_profile on macOS) to make it permanent:
+Add this to your shell configuration (e.g., ~/.bashrc or ~/.zshrc) to persist across sessions:
+echo 'export AIRFLOW_HOME=/Users/anjandebnath/Documents/PythonWorkspace/Agent-AJ/airflow/docker' >> ~/.bashrc
+source ~/.bashrc
+
+5. Initialize the metastore: airflow db migrate
+6. Api server: airflow api-server
+7. Schedular: airflow scheduler
+
+#### Run the Dag 
+1. Check for error: python $AIRFLOW_HOME/dags/sample_dag.py
+2. airflow dags list 
+3. airflow dags trigger sample_dag
