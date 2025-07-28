@@ -97,11 +97,19 @@ Add this to your shell configuration (e.g., ~/.bashrc or ~/.zshrc) to persist ac
 echo 'export AIRFLOW_HOME=/Users/anjandebnath/Documents/PythonWorkspace/Agent-AJ/airflow/docker' >> ~/.bashrc
 source ~/.bashrc
 
-5. Initialize the metastore: airflow db migrate
-6. Api server: airflow api-server
-7. Schedular: airflow scheduler
+5. Initialize the metastore: `airflow db migrate`
+6. Api server: `airflow api-server`  [http://localhost:8080/]
+7. Schedular: `airflow scheduler`
+
+#### Run the Dags Report 
+`airflow dags report`
+
+#### Forces Airflow to re-read your DAG files and update them in the database.
+`airflow dags reserialize`
 
 #### Run the Dag 
 1. Check for error: python $AIRFLOW_HOME/dags/sample_dag.py
-2. airflow dags list 
-3. airflow dags trigger sample_dag
+2. `airflow dags list `
+3. `airflow dags trigger sample_dag`
+
+![alt text](image-1.png)
