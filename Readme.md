@@ -90,10 +90,11 @@ mkdir -p $AIRFLOW_HOME
 https://medium.com/orchestras-data-release-pipeline-blog/installing-and-configuring-apache-airflow-a-step-by-step-guide-5ff602c47a36
 
 Replace ~/airflow with your preferred directory.
-export AIRFLOW_HOME=/Users/anjandebnath/Documents/PythonWorkspace/Agent-AJ/airflow/docker
-mkdir -p $AIRFLOW_HOME
-Persist the environment variable: Add the AIRFLOW_HOME variable to your shell configuration (e.g., ~/.bashrc, ~/.zshrc, or ~/.bash_profile on macOS) to make it permanent:
-Add this to your shell configuration (e.g., ~/.bashrc or ~/.zshrc) to persist across sessions:
+`export AIRFLOW_HOME=/Users/anjandebnath/Documents/PythonWorkspace/Agent-AJ/airflow/docker`
+`mkdir -p $AIRFLOW_HOME`
+
+- Persist the environment variable: Add the AIRFLOW_HOME variable to your shell configuration (e.g., ~/.bashrc, ~/.zshrc, or ~/.bash_profile on macOS) to make it permanent:
+- Add this to your shell configuration (e.g., ~/.bashrc or ~/.zshrc) to persist across sessions:
 echo 'export AIRFLOW_HOME=/Users/anjandebnath/Documents/PythonWorkspace/Agent-AJ/airflow/docker' >> ~/.bashrc
 source ~/.bashrc
 
