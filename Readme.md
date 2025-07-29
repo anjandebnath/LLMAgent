@@ -38,11 +38,12 @@ Manage our scheduling: `Airflow`
 
 
 ### Technical Specification
-we will actually perform the ETML process twice: once for the clustering component and
-once for the text summarization. 
+we will actually perform the ETML process twice: 
+1. Once for the clustering component and
+2. Once for the text summarization. 
 
-Doing it this way means that we can use intermediary storage in between the steps, in this case, AWS S3 again, in
-order to introduce some resiliency into the system. This is so because if the second step fails, it doesn’t mean the first step’s processing is lost. 
+`Doing it this way means that we can use intermediary storage in between the steps, in this case, AWS S3 again, in
+order to introduce some resiliency into the system. This is so because if the second step fails, it doesn’t mean the first step’s processing is lost.` 
 
 
 ### How advanced Airflow features helps in ELML process
