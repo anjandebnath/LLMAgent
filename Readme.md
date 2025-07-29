@@ -1,4 +1,4 @@
-### ML vs LLM
+# ML vs LLM
 As ML engineers who want to interact with LLMs, and foundation models in general, is that we can no longer assume we have access to
 the `model artifact`, the `training data`, or `testing data`. 
 We have to instead treat the model as a third-party service that we should call out to for consumption. Luckily, there are many tools and techniques for implementing this.
@@ -16,7 +16,7 @@ with vector databases, document loading and retrieval, and conversational state 
 
 
 
-### Project goal
+## Project goal
 
 1. I want to be given clear `labels of anomalous rides` that have anomalously `long ride times `or `distances`
 so that I can perform further analysis and modeling on the volume of anomalous rides.
@@ -37,7 +37,7 @@ Text summarization component: `GPT-X models from OpenAI`
 Manage our scheduling: `Airflow`
 
 
-### Technical Specification
+## Technical Specification
 we will actually perform the ETML process twice: 
 1. Once for the clustering component and
 2. Once for the text summarization. 
@@ -45,6 +45,7 @@ we will actually perform the ETML process twice:
 `Doing it this way means that we can use intermediary storage in between the steps, in this case, AWS S3 again, in
 order to introduce some resiliency into the system. This is so because if the second step fails, it doesn’t mean the first step’s processing is lost.` 
 
+## AirFlow
 
 ### How advanced Airflow features helps in ELML process
 Good DAG design practices:
@@ -115,3 +116,9 @@ source ~/.bashrc
 3. `airflow dags trigger sample_dag`
 
 ![alt text](image-1.png)
+
+
+## AWS 
+
+1. check AWS CLI version: aws --version
+2. check AWS credetials: aws configure list
