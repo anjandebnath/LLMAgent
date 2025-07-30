@@ -150,11 +150,13 @@ source ~/.bashrc
 
 
 3. Clustering (cluster.py): This script takes the raw taxi ride data, uses the DBSCAN machine learning algorithm to find groups (clusters) of similar rides, and identifies outliers (rides that don't fit any pattern). It then saves this newly labeled data back to S3.
+
 `poetry run python cluster.py`
 - This will run the clustering process and print a confirmation message upon saving the new file to S3.
 
 
 4. Summarization (summarize.py): This final script takes the clustered data and uses the OpenAI API to generate a human-readable summary for each of the outlier rides identified in the previous step. The final, enriched dataset is then saved to S3.
+
 `poetry run python summarize.py`
 -This will run the summarization process on the clustered file and print a confirmation message.
 
