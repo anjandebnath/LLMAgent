@@ -155,3 +155,7 @@ source ~/.bashrc
 
 
 4. Summarization (summarize.py): This final script takes the clustered data and uses the OpenAI API to generate a human-readable summary for each of the outlier rides identified in the previous step. The final, enriched dataset is then saved to S3.
+`poetry run python summarize.py`
+-This will run the summarization process on the clustered file and print a confirmation message.
+
+
