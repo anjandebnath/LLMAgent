@@ -18,6 +18,10 @@ with vector databases, document loading and retrieval, and conversational state 
 
 ## Project goal
 
+    Built an ETML pipeline that takes in some taxi ride data, 
+    clusters this based on ride distance and time, and then 
+    performs text summarization on some contextual information using an LLM.
+
 1. I want to be given clear `labels of anomalous rides` that have anomalously `long ride times `or `distances`
 so that I can perform further analysis and modeling on the volume of anomalous rides.
 2. I want to be provided with a `summary of relevant textual data` 
@@ -122,3 +126,32 @@ source ~/.bashrc
 
 1. check AWS CLI version: aws --version
 2. check AWS credetials: aws configure list
+
+#### Add Dependencies with Poetry:
+    poetry add python-dotenv pandas boto3 scikit-learn openai
+
+
+### project Component
+
+1. Simulation (simulate.py): Generates a fake dataset of taxi rides, including numerical data (distance, speed) and contextual text data (news, weather, traffic). This script is the starting point for the entire pipeline.
+
+`poetry run python simulate.py`
+- This command will create a new JSON file in a data directory (e.g., ../data/taxi-rides-20250730.json). This file is the raw, unprocessed source data for the entire pipeline.
+
+1.1. Upload the Raw Data to S3
+`aws s3 cp ../data/taxi-rides-20250730.json s3://aj-etml-data/source/raw_data.json`
+- You can now log in to your AWS S3 console to see that the raw_data.json file exists in the correct location (s3://your-test-bucket-name/source/).
+
+
+2. Extraction (extractor.py): This is a reusable utility class that connects to an AWS S3 bucket to fetch a specified data file. It's used by other scripts to get the data they need to process.
+
+`poetry run python extractor.py`
+- This will extract the data and print the first 5 rows of the DataFrame to your console.
+
+
+3. Clustering (cluster.py): This script takes the raw taxi ride data, uses the DBSCAN machine learning algorithm to find groups (clusters) of similar rides, and identifies outliers (rides that don't fit any pattern). It then saves this newly labeled data back to S3.
+`poetry run python cluster.py`
+- This will run the clustering process and print a confirmation message upon saving the new file to S3.
+
+
+4. Summarization (summarize.py): This final script takes the clustered data and uses the OpenAI API to generate a human-readable summary for each of the outlier rides identified in the previous step. The final, enriched dataset is then saved to S3.
