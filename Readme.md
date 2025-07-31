@@ -22,6 +22,8 @@ with vector databases, document loading and retrieval, and conversational state 
     clusters this based on ride distance and time, and then 
     performs text summarization on some contextual information using an LLM.
 
+    ![alt text](image-2.png)
+
 1. I want to be given clear `labels of anomalous rides` that have anomalously `long ride times `or `distances`
 so that I can perform further analysis and modeling on the volume of anomalous rides.
 2. I want to be provided with a `summary of relevant textual data` 
@@ -35,10 +37,10 @@ The requirements for our problem have stipulated that we have `relatively small 
 that need to be `processed in batches` every day, first with some kind of clustering or anomaly detection
 algorithm before further analysis using an LLM. 
 
-Data storage and interface options: `AWS S3`
-Modeling part with small data set: `Scikit-learn`
-Text summarization component: `GPT-X models from OpenAI`
-Manage our scheduling: `Airflow`
+    Data storage and interface options: `AWS S3`
+    Modeling part with small data set: `Scikit-learn`
+    Text summarization component: `GPT-X models from OpenAI`
+    Manage our scheduling: `Airflow`
 
 
 ## Technical Specification
@@ -150,12 +152,14 @@ source ~/.bashrc
 
 
 3. Clustering (cluster.py): This script takes the raw taxi ride data, uses the DBSCAN machine learning algorithm to find groups (clusters) of similar rides, and identifies outliers (rides that don't fit any pattern). It then saves this newly labeled data back to S3.
+
 `poetry run python cluster.py`
 - This will run the clustering process and print a confirmation message upon saving the new file to S3.
 
 
 4. Summarization (summarize.py): This final script takes the clustered data and uses the OpenAI API to generate a human-readable summary for each of the outlier rides identified in the previous step. The final, enriched dataset is then saved to S3.
+
 `poetry run python summarize.py`
--This will run the summarization process on the clustered file and print a confirmation message.
+- This will run the summarization process on the clustered file and print a confirmation message.
 
 
