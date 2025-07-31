@@ -20,9 +20,10 @@ with vector databases, document loading and retrieval, and conversational state 
 
     Built an ETML pipeline that takes in some taxi ride data, 
     clusters this based on ride distance and time, and then 
-    performs text summarization on some contextual information using an LLM.
+    performs text summarization on some contextual information using an LLM
 
-    ![alt text](image-2.png)
+### Output
+![alt text](image-2.png)
 
 1. I want to be given clear `labels of anomalous rides` that have anomalously `long ride times `or `distances`
 so that I can perform further analysis and modeling on the volume of anomalous rides.
