@@ -126,12 +126,12 @@ Click CREATE DATASET.
 3. OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES poetry run zenml up
 
 ### Run the ETL pipeline 
-poetry run python src/agent_aj/pipelines/etl_pipeline.py
+    poetry run python src/agent_aj/pipelines/etl_pipeline.py
 
 ![alt text](image-2.png)
 
 ### Run the Feature Extraction pipeline
-poetry run python src/agent_aj/pipelines/feature_pipeline.py
+    poetry run python src/agent_aj/pipelines/feature_pipeline.py
 
 1. Fetch data from BigQuery.
 
@@ -150,3 +150,7 @@ poetry run python src/agent_aj/pipelines/feature_pipeline.py
 #### to find any file location
 find . -name "travel_deals.txt"  
 echo %GOOGLE_APPLICATION_CREDENTIALS%
+
+### Run the agent.py for RAG
+poetry add langchain-ollama
+poetry run python src/agent_aj/app/agent.py
