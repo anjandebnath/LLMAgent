@@ -151,12 +151,12 @@ Click CREATE DATASET.
 ![alt text](image-4.png)
 
 #### to find any file location
-find . -name "travel_deals.txt"  
-echo %GOOGLE_APPLICATION_CREDENTIALS%
+    find . -name "travel_deals.txt"  
+    echo %GOOGLE_APPLICATION_CREDENTIALS%
 
 ### Run the agent.py for RAG
-poetry add langchain-ollama
-`poetry run python src/agent_aj/app/agent.py`
+`poetry add langchain-ollama`
+    poetry run python src/agent_aj/app/agent.py
 
     [Unstructured Data] -> [ETL Pipeline (Python)] -> [Google BigQuery]
                                                             |
