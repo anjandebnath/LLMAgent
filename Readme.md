@@ -1,3 +1,6 @@
+### Project Goal
+https://medium.com/@anjancse07/project-showcase-the-ai-travel-agent-5bc0191cb770
+
 ### Project Structure 
 ![alt text](image.png)
 
@@ -154,3 +157,17 @@ echo %GOOGLE_APPLICATION_CREDENTIALS%
 ### Run the agent.py for RAG
 poetry add langchain-ollama
 poetry run python src/agent_aj/app/agent.py
+
+    [Unstructured Data] -> [ETL Pipeline (Python)] -> [Google BigQuery]
+                                                            |
+                                                            v
+    [Feature Pipeline (Python)] -> [Chunking & Embedding] -> [Qdrant Vector DB]
+                                                            ^
+                                                            | (Tool 1: Retriever)
+                                                            |
+    [User] <--> [CLI / UI] <--> [LangChain Agent Executor] <--> [Mistral LLM]
+                                    |                     (Core Brain)
+                                    |
+                                    v (Tool 2: Google Search)
+                                    |
+                                [The Internet]
