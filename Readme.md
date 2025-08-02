@@ -156,7 +156,7 @@ echo %GOOGLE_APPLICATION_CREDENTIALS%
 
 ### Run the agent.py for RAG
 poetry add langchain-ollama
-poetry run python src/agent_aj/app/agent.py
+`poetry run python src/agent_aj/app/agent.py`
 
     [Unstructured Data] -> [ETL Pipeline (Python)] -> [Google BigQuery]
                                                             |
@@ -171,3 +171,7 @@ poetry run python src/agent_aj/app/agent.py
                                     v (Tool 2: Google Search)
                                     |
                                 [The Internet]
+
+
+### Comet output 
+![alt text](image-5.png)
