@@ -38,6 +38,9 @@ poetry-env/
 .env.test.local
 .env.production.local
 
+# Qdrant DB config
+#qdrant_storage/
+
 # macOS
 .DS_Store
 .AppleDouble

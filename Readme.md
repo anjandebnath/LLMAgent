@@ -21,6 +21,8 @@ To start it again later: `docker start ollama`
 `docker-compose up -d qdrant`
 You can now access the Qdrant UI at http://localhost:6333/dashboard
 
+### Start Qdrant with docker 
+`docker-compose start qdrant`
 ### To Temporarily Stop the Container:
 `docker-compose stop qdrant`
 
@@ -130,6 +132,14 @@ poetry run python src/agent_aj/pipelines/etl_pipeline.py
 
 ### Run the Feature Extraction pipeline
 poetry run python src/agent_aj/pipelines/feature_pipeline.py
+
+1. Fetch data from BigQuery.
+
+2. Connect to Ollama to 
+  - split data into chunks.
+  - generate embeddings.
+
+3. Connect to Qdrant to store the results.
 
 📄 Split data into 37 chunks.
 🤖 Generating embeddings and storing in Qdrant collection: 'travel_packages'...
