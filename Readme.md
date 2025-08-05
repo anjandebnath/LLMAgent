@@ -29,41 +29,7 @@ You can now access the Qdrant UI at http://localhost:6333/dashboard
 ### To Temporarily Stop the Container:
 `docker-compose stop qdrant`
 
-###  Here is visual guidance on creating credentials in Google Cloud Platform.
-
-Create Service Account & Download Key 🔑
-Navigate to Service Accounts:
-In the Google Cloud Console, use the top search bar to find and navigate to IAM & Admin > Service Accounts.
-
-Start Creation:
-Click the + CREATE SERVICE ACCOUNT button at the top of the page.
-
-Enter Details:
-
-Give your service account a name (e.g., bigquery-search-sa).
-
-The Service account ID will be generated automatically.
-
-Add an optional description.
-
-Click CREATE AND CONTINUE.
-
-Assign Roles:
-
-Click the Select a role dropdown menu.
-
-Type BigQuery User in the filter box, select it, and it will be added.
-
-Click + ADD ANOTHER ROLE.
-
-Type BigQuery Data Editor in the filter box and select it.
-
-Click CONTINUE.
-
-Finish:
-You can skip the last step ("Grant users access to this service account"). Click DONE.
-
-Create and Download JSON Key:
+### Create and Download JSON Key:
 
 Find your new service account in the list. Click the three-dot icon under the Actions column.
 
@@ -175,3 +141,35 @@ Click CREATE DATASET.
 
 ### Comet output 
 ![alt text](image-5.png)
+
+### Supervised Fine-Tunnnig 
+Think of the Mistral model running locally in Docker as your "Inference Engine." 
+It's great for running the agent and getting quick responses.
+
+The fine-tuning process, however, is a heavy-duty "Training Job." For this, you want to use a powerful GPU, which Google Colab provides for free.
+
+You won't be connecting Colab to your local Docker instance. Instead, you will:
+
+1. `Download a fresh copy of the Mistral model` inside the Google Colab environment.
+
+2. `Fine-tune` it there using the powerful GPU.
+
+3. `Save the result` (the fine-tuned "adapter" layers).
+
+4. `Load this new, improved model` back into your local TravelAgent project.
+
+
+#### Data Setup
+I will leverage the datasets library available in Hugging Face to load a binary classification dataset called IMDB (you can find the dataset card at https://huggingface.co/datasets/imdb).
+
+### Finetuning
+Add your Comet credentials as "Secrets" in Google Colab. This is much more secure than pasting them directly into the code.
+![alt text](image-7.png)
+
+#### Cometml dashboard 
+`https://www.comet.com/anjan0151/ai-travel-agent/4b692a16a548488ba950bb5962308c6e?experiment-tab=metrics`
+![alt text](image-8.png)
+
+#### Weights & Biases dashboard
+https://wandb.ai/anjan-debnath-solshare/huggingface/workspace?nw=nwuseranjandebnath
+![alt text](image-9.png)
